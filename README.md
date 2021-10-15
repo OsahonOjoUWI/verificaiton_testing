@@ -4,8 +4,8 @@
 
 # Important Files
 
- Source file: main/user_main.c
- Output file: main/lab1_q3_816005001.out
+ Source file: main/user_main.c,
+ Output file: main/lab1_q3_816005001.out,
  Binary file: build/i2c.bin
 
 # Pin Assignment
