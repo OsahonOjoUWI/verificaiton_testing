@@ -95,8 +95,8 @@ SECTIONS
     _iram_bss_start = ABSOLUTE(.);
 
     *libcore.a:( .bss  .bss.*  COMMON)
-    *libfreertos.a:impure.*( .bss  .bss.*  COMMON)
     *libfreertos.a:tasks.*( .bss  .bss.*  COMMON)
+    *libfreertos.a:impure.*( .bss  .bss.*  COMMON)
     *libfreertos.a:freertos_hooks.*( .bss  .bss.*  COMMON)
     *libfreertos.a:timers.*( .bss  .bss.*  COMMON)
     *libfreertos.a:event_groups.*( .bss  .bss.*  COMMON)
@@ -155,7 +155,7 @@ SECTIONS
     . = ALIGN (8);
     _bss_start = ABSOLUTE(.);
 
-    *(EXCLUDE_FILE(*libcore.a *libfreertos.a:stream_buffer.* *libfreertos.a:list.* *libfreertos.a:queue.* *libfreertos.a:event_groups.* *libfreertos.a:timers.* *libfreertos.a:freertos_hooks.* *libfreertos.a:tasks.* *libfreertos.a:impure.* *liblwip.a) .bss EXCLUDE_FILE(*libcore.a *libfreertos.a:stream_buffer.* *libfreertos.a:list.* *libfreertos.a:queue.* *libfreertos.a:event_groups.* *libfreertos.a:timers.* *libfreertos.a:freertos_hooks.* *libfreertos.a:tasks.* *libfreertos.a:impure.* *liblwip.a) .bss.* EXCLUDE_FILE(*libcore.a *libfreertos.a:stream_buffer.* *libfreertos.a:list.* *libfreertos.a:queue.* *libfreertos.a:event_groups.* *libfreertos.a:timers.* *libfreertos.a:freertos_hooks.* *libfreertos.a:tasks.* *libfreertos.a:impure.* *liblwip.a) COMMON)
+    *(EXCLUDE_FILE(*libcore.a *libfreertos.a:stream_buffer.* *libfreertos.a:list.* *libfreertos.a:queue.* *libfreertos.a:event_groups.* *libfreertos.a:timers.* *libfreertos.a:freertos_hooks.* *libfreertos.a:impure.* *libfreertos.a:tasks.* *liblwip.a) .bss EXCLUDE_FILE(*libcore.a *libfreertos.a:stream_buffer.* *libfreertos.a:list.* *libfreertos.a:queue.* *libfreertos.a:event_groups.* *libfreertos.a:timers.* *libfreertos.a:freertos_hooks.* *libfreertos.a:impure.* *libfreertos.a:tasks.* *liblwip.a) .bss.* EXCLUDE_FILE(*libcore.a *libfreertos.a:stream_buffer.* *libfreertos.a:list.* *libfreertos.a:queue.* *libfreertos.a:event_groups.* *libfreertos.a:timers.* *libfreertos.a:freertos_hooks.* *libfreertos.a:impure.* *libfreertos.a:tasks.* *liblwip.a) COMMON)
 
     *(.dynsbss)
     *(.sbss)

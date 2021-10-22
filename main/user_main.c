@@ -28,6 +28,7 @@
 
 static const char *TAG = "main";
 volatile uint16_t adc_result;
+volatile uint16_t cmd_data;
 
 /**
  * TEST CODE BRIEF
@@ -186,11 +187,11 @@ static esp_err_t i2c_example_master_ADS1115_read(i2c_port_t i2c_num, uint8_t reg
 
 static esp_err_t i2c_example_master_ADS1115_init(i2c_port_t i2c_num)
 {
-    uint16_t cmd_data;
+    //uint16_t cmd_data;
     vTaskDelay(100 / portTICK_RATE_MS);
-    i2c_example_master_init();
-    cmd_data = 0xC283;    // Config register value
-    /* bit 15 (when writing): 1: begin single conversion (when in power-down state)
+    ESP_ERROR_CHECK(i2c_example_master_init());
+    cmd_data = 0x4283;    // Config register value
+    /* bit 15 (when writing): 0: DO NOT begin single conversion (when in power-down state)
        bit 14-12 (differential inputs): 100: single-sided input on channel 0: AINP = AIN0, AINN = GND
        bit 11-9 (full-scale input voltage range): 001: +/- 4.096V
        bit 8: 0: continuous conversion
@@ -199,7 +200,7 @@ static esp_err_t i2c_example_master_ADS1115_init(i2c_port_t i2c_num)
        bit 3 (COMP_POL): 0: active low (default)
        bit 2 (COMP_LAT): 0: nonlatching (default)
        bit 1-0 (COMP_QUE): 11: disable comparator (default)
-       0b1100 0010 1000 0011 = 0xC283
+       0b0100 0010 1000 0011 = 0x4283
      */
     ESP_ERROR_CHECK(i2c_example_master_ADS1115_write(i2c_num, ADS_PTR_CONFIG, (uint8_t*) &cmd_data, 2));
     return ESP_OK;
@@ -207,7 +208,7 @@ static esp_err_t i2c_example_master_ADS1115_init(i2c_port_t i2c_num)
 
 static void i2c_task_example(void *arg)
 {
-    uint16_t cmd_data = 0xC283;
+    //cmd_data = 0xC283;
     int ret;
 
     printf("Inside task_example\n");
@@ -215,6 +216,7 @@ static void i2c_task_example(void *arg)
 
     while (1) {
         //initiate conversion
+        cmd_data = 0xC283;
         i2c_example_master_ADS1115_write(I2C_EXAMPLE_MASTER_NUM, ADS_PTR_CONFIG, (uint8_t*) &cmd_data, 2);
         vTaskDelay(200 / portTICK_RATE_MS);
 
@@ -225,7 +227,7 @@ static void i2c_task_example(void *arg)
         //if read was successful
         if (ret == ESP_OK) {
             ESP_LOGI(TAG, "ADC Result: %x\n", adc_result);
-        } 
+        }
         else {
             ESP_LOGI(TAG, "ERROR: ADS1115 read failed!\n");
         }
