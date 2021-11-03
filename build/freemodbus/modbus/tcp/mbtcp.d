@@ -3,7 +3,7 @@ modbus/tcp/mbtcp.o: \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/freemodbus/port/port.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/freertos/include/freertos/FreeRTOS.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/freertos/port/esp8266/include/freertos/FreeRTOSConfig.h \
- /home/osahon/esp/i2c/build/include/sdkconfig.h \
+ /home/osahon/esp/ecng3006_lab3/i2c/build/include/sdkconfig.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/eagle_soc.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/driver/soc.h \
@@ -47,7 +47,7 @@ modbus/tcp/mbtcp.o: \
 
 /opt/esp_sdk/ESP8266_RTOS_SDK/components/freertos/port/esp8266/include/freertos/FreeRTOSConfig.h:
 
-/home/osahon/esp/i2c/build/include/sdkconfig.h:
+/home/osahon/esp/ecng3006_lab3/i2c/build/include/sdkconfig.h:
 
 /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h:
 

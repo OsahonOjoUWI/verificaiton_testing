@@ -2,7 +2,7 @@ src/crypto/des-internal.o: \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/wpa_supplicant/src/crypto/des-internal.c \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/wpa_supplicant/src/utils/includes.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/wpa_supplicant/port/include/supplicant_opt.h \
- /home/osahon/esp/i2c/build/include/sdkconfig.h \
+ /home/osahon/esp/ecng3006_lab3/i2c/build/include/sdkconfig.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/eagle_soc.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/driver/soc.h \
@@ -27,7 +27,7 @@ src/crypto/des-internal.o: \
 
 /opt/esp_sdk/ESP8266_RTOS_SDK/components/wpa_supplicant/port/include/supplicant_opt.h:
 
-/home/osahon/esp/i2c/build/include/sdkconfig.h:
+/home/osahon/esp/ecng3006_lab3/i2c/build/include/sdkconfig.h:
 
 /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h:
 

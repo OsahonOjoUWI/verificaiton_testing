@@ -12,7 +12,7 @@ xtensa/gdbstub_xtensa.o: \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/xtensa/config/core-matmap.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp_gdbstub/esp8266/gdbstub_target_config.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp_gdbstub/private_include/esp_gdbstub_common.h \
- /home/osahon/esp/i2c/build/include/sdkconfig.h \
+ /home/osahon/esp/ecng3006_lab3/i2c/build/include/sdkconfig.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/eagle_soc.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/driver/soc.h
 
@@ -40,7 +40,7 @@ xtensa/gdbstub_xtensa.o: \
 
 /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp_gdbstub/private_include/esp_gdbstub_common.h:
 
-/home/osahon/esp/i2c/build/include/sdkconfig.h:
+/home/osahon/esp/ecng3006_lab3/i2c/build/include/sdkconfig.h:
 
 /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/eagle_soc.h:
 

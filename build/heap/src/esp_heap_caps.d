@@ -1,7 +1,7 @@
 src/esp_heap_caps.o: \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/heap/src/esp_heap_caps.c \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/heap/include/esp_heap_caps.h \
- /home/osahon/esp/i2c/build/include/sdkconfig.h \
+ /home/osahon/esp/ecng3006_lab3/i2c/build/include/sdkconfig.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp_common/include/esp_err.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/heap/port/esp8266/include/esp_heap_config.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/heap/port/esp8266/include/esp_heap_port.h \
@@ -16,7 +16,7 @@ src/esp_heap_caps.o: \
 
 /opt/esp_sdk/ESP8266_RTOS_SDK/components/heap/include/esp_heap_caps.h:
 
-/home/osahon/esp/i2c/build/include/sdkconfig.h:
+/home/osahon/esp/ecng3006_lab3/i2c/build/include/sdkconfig.h:
 
 /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp_common/include/esp_err.h:
 

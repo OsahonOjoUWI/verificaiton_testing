@@ -1,7 +1,7 @@
 vfs/vfs_fat_spiflash.o: \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/fatfs/vfs/vfs_fat_spiflash.c \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/log/include/esp_log.h \
- /home/osahon/esp/i2c/build/include/sdkconfig.h \
+ /home/osahon/esp/ecng3006_lab3/i2c/build/include/sdkconfig.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/eagle_soc.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/driver/soc.h \
@@ -59,7 +59,7 @@ vfs/vfs_fat_spiflash.o: \
 
 /opt/esp_sdk/ESP8266_RTOS_SDK/components/log/include/esp_log.h:
 
-/home/osahon/esp/i2c/build/include/sdkconfig.h:
+/home/osahon/esp/ecng3006_lab3/i2c/build/include/sdkconfig.h:
 
 /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h:
 

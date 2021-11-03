@@ -2,7 +2,7 @@ src/crypto/crypto_mbedtls-bignum.o: \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/wpa_supplicant/src/crypto/crypto_mbedtls-bignum.c \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/esp_system.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp_common/include/esp_err.h \
- /home/osahon/esp/i2c/build/include/sdkconfig.h \
+ /home/osahon/esp/ecng3006_lab3/i2c/build/include/sdkconfig.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/esp_idf_version.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/mbedtls/mbedtls/include/mbedtls/bignum.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/mbedtls/port/include/mbedtls/esp_config.h \
@@ -43,7 +43,7 @@ src/crypto/crypto_mbedtls-bignum.o: \
 
 /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp_common/include/esp_err.h:
 
-/home/osahon/esp/i2c/build/include/sdkconfig.h:
+/home/osahon/esp/ecng3006_lab3/i2c/build/include/sdkconfig.h:
 
 /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/esp_idf_version.h:
 

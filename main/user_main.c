@@ -1,5 +1,5 @@
 // Osahon Ojo - 816005001
-// ECNG 3006 Lab #1
+// ECNG 3006 Lab #3
 
 /* I2C example
 
@@ -29,6 +29,9 @@
 static const char *TAG = "main";
 volatile uint16_t adc_result;
 volatile uint16_t cmd_data;
+volatile uint16_t v_in_whole;
+volatile uint16_t v_in_frac;
+volatile uint16_t v_in_dec;
 
 /**
  * TEST CODE BRIEF
@@ -79,7 +82,7 @@ volatile uint16_t cmd_data;
  * this routine is appropriate because:
  * it sets the ESP as the master,
  * specifies the ESP pins that will act as SDA and SCL,
- * and disables internal pullups for those pins 
+ * and disables internal pullups for those pins
  * since they have external pullups,
  * As such, when the i2c bus is idle, SDA and SCL are pulled high,
  * as they should be.
@@ -187,8 +190,6 @@ static esp_err_t i2c_example_master_ADS1115_read(i2c_port_t i2c_num, uint8_t reg
 
 static esp_err_t i2c_example_master_ADS1115_init(i2c_port_t i2c_num)
 {
-    //uint16_t cmd_data;
-    vTaskDelay(100 / portTICK_RATE_MS);
     ESP_ERROR_CHECK(i2c_example_master_init());
     cmd_data = 0x4283;    // Config register value
     /* bit 15 (when writing): 0: DO NOT begin single conversion (when in power-down state)
@@ -206,32 +207,72 @@ static esp_err_t i2c_example_master_ADS1115_init(i2c_port_t i2c_num)
     return ESP_OK;
 }
 
+/* ADC result to voltage conversion formula:
+ * Vin = ( (ADC_result / 2^N)*(Vthres_+ - Vthres_-) ) + Vthres_-
+ * Vin = ADC_result (4.096 / 65536)
+ * Vin = ADC_result / 16000
+ */
+
+//This fxn calculates whole number part of voltage value
+static void adcResToVoltageWhole(volatile uint16_t* res_adc, volatile uint16_t* res_whole)
+{
+    (*res_whole) = (*res_adc) / 16000;
+}
+
+/* This fxn calculates decimal part of voltage value.
+ * It gives back only the digits after the decimal point.
+ * It uses 10,000 for an accuracy of 4 decimal places.
+ */
+static void adcResToVoltageDec(volatile uint16_t* res_adc, volatile uint16_t* res_frac, volatile uint16_t* res_dec)
+{
+    (*res_frac) = (*res_adc) % 16000;
+    (*res_dec) = ((*res_frac) * 10000) / 16000;
+}
+
+//This fxn converts the ADC result to a voltage
+static void adcResToVoltage(volatile uint16_t* res_adc, volatile uint16_t* res_whole, volatile uint16_t* res_frac, volatile uint16_t* res_dec)
+{
+    adcResToVoltageWhole(res_adc, res_whole);
+    adcResToVoltageDec(res_adc, res_frac, res_dec);
+}
+
+
 static void i2c_task_example(void *arg)
 {
-    //cmd_data = 0xC283;
     int ret;
 
     printf("Inside task_example\n");
     i2c_example_master_ADS1115_init(I2C_EXAMPLE_MASTER_NUM);
 
+    //wait 2s for ADC to start up
+    //vTaskDelay(2000 / portTICK_RATE_MS);
+
     while (1) {
         //initiate conversion
         cmd_data = 0xC283;
         i2c_example_master_ADS1115_write(I2C_EXAMPLE_MASTER_NUM, ADS_PTR_CONFIG, (uint8_t*) &cmd_data, 2);
-        vTaskDelay(200 / portTICK_RATE_MS);
 
         //attempt to read conversion result
         adc_result = 0;
+        v_in_whole = 0;
+        v_in_frac = 0;
+        v_in_dec = 0;
         ret = i2c_example_master_ADS1115_read(I2C_EXAMPLE_MASTER_NUM, ADS_PTR_CONVERSION, (uint8_t*) &adc_result, 2);
+
+        adcResToVoltage(&adc_result, &v_in_whole, &v_in_frac, &v_in_dec);
 
         //if read was successful
         if (ret == ESP_OK) {
-            ESP_LOGI(TAG, "ADC Result: %x\n", adc_result);
+            ESP_LOGI(TAG, "ADC Result: 0x%x [%i]\n", adc_result, (int)adc_result);
+            ESP_LOGI(TAG, "Fraction: %i / 16000\n", (int)v_in_frac);
+            ESP_LOGI(TAG, "Voltage: %i.%i V\n\n", (int)v_in_whole, (int)v_in_dec);
         }
-        else {
+        else
+        {
             ESP_LOGI(TAG, "ERROR: ADS1115 read failed!\n");
         }
 
+        //sample ADC once per second
         vTaskDelay(1000 / portTICK_RATE_MS);
     }
 
@@ -241,6 +282,7 @@ static void i2c_task_example(void *arg)
 void app_main(void)
 {
     printf("Inside app_main\n");
+
     //start i2c task
     xTaskCreate(i2c_task_example, "i2c_task_example", 2048, NULL, 10, NULL);
 }
