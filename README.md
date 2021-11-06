@@ -1,8 +1,8 @@
 # Verification Testing
 
  This code will create a task to run a verification test on the system.
- The system samples a voltage using an ADC every five seconds,then from the ADC output, calculates and prints the voltage to the terminal
- Unit Under Test: adcResToVoltage() which determines whole and fractional part of voltage value corresponding to an ADC result
+ The system samples a voltage using an ADC every five seconds,then from the ADC output, calculates and prints the voltage to the terminal.
+ Unit Under Test: adcResToVoltage() which determines whole and fractional part of voltage value corresponding to an ADC result.
 
 # Important Files
 
