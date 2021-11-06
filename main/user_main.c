@@ -31,7 +31,8 @@ volatile uint16_t adc_result;
 volatile uint16_t cmd_data;
 volatile uint16_t v_in_whole;
 volatile uint16_t v_in_frac;
-volatile uint16_t v_in_dec;
+volatile uint16_t exp_whole;
+volatile uint16_t exp_frac;
 
 /**
  * TEST CODE BRIEF
@@ -213,67 +214,93 @@ static esp_err_t i2c_example_master_ADS1115_init(i2c_port_t i2c_num)
  * Vin = ADC_result / 16000
  */
 
-//This fxn calculates whole number part of voltage value
+//This fxn calculates whole number part of voltage value from the ADC result
 static void adcResToVoltageWhole(volatile uint16_t* res_adc, volatile uint16_t* res_whole)
 {
     (*res_whole) = (*res_adc) / 16000;
 }
 
-/* This fxn calculates decimal part of voltage value.
- * It gives back only the digits after the decimal point.
- * It uses 10,000 for an accuracy of 4 decimal places.
- */
-static void adcResToVoltageDec(volatile uint16_t* res_adc, volatile uint16_t* res_frac, volatile uint16_t* res_dec)
+/* This fxn calculates fractional part of voltage value from the ADC result */
+static void adcResToVoltageFrac(volatile uint16_t* res_adc, volatile uint16_t* res_frac)
 {
     (*res_frac) = (*res_adc) % 16000;
-    (*res_dec) = ((*res_frac) * 10000) / 16000;
 }
 
 //This fxn converts the ADC result to a voltage
-static void adcResToVoltage(volatile uint16_t* res_adc, volatile uint16_t* res_whole, volatile uint16_t* res_frac, volatile uint16_t* res_dec)
+static void adcResToVoltage(volatile uint16_t* res_adc, volatile uint16_t* res_whole, volatile uint16_t* res_frac)
 {
     adcResToVoltageWhole(res_adc, res_whole);
-    adcResToVoltageDec(res_adc, res_frac, res_dec);
+    adcResToVoltageFrac(res_adc, res_frac);
 }
 
 
-static void i2c_task_example(void *arg)
+static void verification_test_task(void *arg)
 {
     int ret;
+    int i = 2;
 
     printf("Inside task_example\n");
     i2c_example_master_ADS1115_init(I2C_EXAMPLE_MASTER_NUM);
 
-    //wait 2s for ADC to start up
-    //vTaskDelay(2000 / portTICK_RATE_MS);
+    while (1)
+    {
+        // test cases
+        if (i == 1)               // 3.3V
+        {
+            ESP_LOGI(TAG, "Please change voltage to 3.3V. Waiting for 5s...\n");
+            exp_whole = 3;
+            exp_frac = 4800;
+        }
+        else if (i == 2)          // 2.85V
+        {
+            ESP_LOGI(TAG, "Please change voltage to 2.85V. Waiting for 5s...\n");
+            exp_whole = 2;
+            exp_frac = 13600;
+        }
+        else if (i == 3)          // 1.41V
+        {
+            ESP_LOGI(TAG, "Please change voltage to 1.41V. Waiting for 5s...\n");
+            exp_whole = 1;
+            exp_frac = 6560;
+        }
 
-    while (1) {
+        //wait for 5s user to change ADC input voltage
+        vTaskDelay(5000 / portTICK_RATE_MS);
+
+        ESP_LOGI(TAG, "Sampling...\n");
+
         //initiate conversion
         cmd_data = 0xC283;
         i2c_example_master_ADS1115_write(I2C_EXAMPLE_MASTER_NUM, ADS_PTR_CONFIG, (uint8_t*) &cmd_data, 2);
+
+        //wait for conversion to finish
+        //sampling freq = 128SPS so assume time for conversion = 1/128 = 7.8ms
+        vTaskDelay(10 / portTICK_RATE_MS);
 
         //attempt to read conversion result
         adc_result = 0;
         v_in_whole = 0;
         v_in_frac = 0;
-        v_in_dec = 0;
+
         ret = i2c_example_master_ADS1115_read(I2C_EXAMPLE_MASTER_NUM, ADS_PTR_CONVERSION, (uint8_t*) &adc_result, 2);
 
-        adcResToVoltage(&adc_result, &v_in_whole, &v_in_frac, &v_in_dec);
+        adcResToVoltage(&adc_result, &v_in_whole, &v_in_frac);
 
         //if read was successful
         if (ret == ESP_OK) {
             ESP_LOGI(TAG, "ADC Result: 0x%x [%i]\n", adc_result, (int)adc_result);
-            ESP_LOGI(TAG, "Fraction: %i / 16000\n", (int)v_in_frac);
-            ESP_LOGI(TAG, "Voltage: %i.%i V\n\n", (int)v_in_whole, (int)v_in_dec);
+            ESP_LOGI(TAG, "Expected voltage -> Whole: %i, Fraction: %i / 16000 V\n", (int)exp_whole, (int)exp_frac);
+            ESP_LOGI(TAG, "Voltage -> Whole: %i, Fraction: %i / 16000 V\n", (int)v_in_whole, (int)v_in_frac);
         }
         else
         {
             ESP_LOGI(TAG, "ERROR: ADS1115 read failed!\n");
         }
 
-        //sample ADC once per second
-        vTaskDelay(1000 / portTICK_RATE_MS);
+        /* if (i >= 3)
+            i = 1;
+        else
+            i++; */
     }
 
     i2c_driver_delete(I2C_EXAMPLE_MASTER_NUM);
@@ -284,5 +311,5 @@ void app_main(void)
     printf("Inside app_main\n");
 
     //start i2c task
-    xTaskCreate(i2c_task_example, "i2c_task_example", 2048, NULL, 10, NULL);
+    xTaskCreate(verification_test_task, "verification_test_task", 2048, NULL, 10, NULL);
 }

@@ -1,0 +1,117 @@
+ ets Jan  8 2013,rst cause:2, boot mode:(3,6)
+
+load 0x40100000, len 7032, room 16 
+tail 8
+chksum 0xcc
+load 0x3ffe8408, len 24, room 0 
+tail 8
+chksum 0x75
+load 0x3ffe8420, len 3328, room 0 
+tail 0
+chksum 0x05
+csum 0x05
+I (43) boot: ESP-IDF v3.4-49-g0f200b46-dirty 2nd stage bootloader
+I (43) boot: compile time 15:37:33
+I (44) boot: SPI Speed      : 40MHz
+I (50) boot: SPI Mode       : DOUT
+I (57) boot: SPI Flash Size : 1MB
+I (63) boot: Partition Table:
+I (68) boot: ## Label            Usage          Type ST Offset   Length
+I (79) boot:  0 nvs              WiFi data        01 02 00009000 00006000
+I (91) boot:  1 phy_init         RF data          01 01 0000f000 00001000
+I (102) boot:  2 factory          factory app      00 00 00010000 000f0000
+I (114) boot: End of partition table
+I (121) esp_image: segment 0: paddr=0x00010010 vaddr=0x40210010 size=0x17624 ( 95780) map
+0x40210010: _stext at ??:?
+
+I (176) esp_image: segment 1: paddr=0x0002763c vaddr=0x40227634 size=0x05e20 ( 24096) map
+I (187) esp_image: segment 2: paddr=0x0002d464 vaddr=0x3ffe8000 size=0x003dc (   988) load
+I (188) esp_image: segment 3: paddr=0x0002d848 vaddr=0x40100000 size=0x00080 (   128) load
+I (201) esp_image: segment 4: paddr=0x0002d8d0 vaddr=0x40100080 size=0x04558 ( 17752) load
+I (222) boot: Loaded app from partition at offset 0x10000
+Inside app_main
+Inside task_example
+I (245) gpio: GPIO[2]| InputEn: 0| OutputEn: 1| OpenDrain: 1| Pullup: 0| Pulldown: 0| Intr:0 
+I (251) gpio: GPIO[0]| InputEn: 0| OutputEn: 1| OpenDrain: 1| Pullup: 0| Pulldown: 0| Intr:0 
+I (263) main: Please change voltage to 3.3V. Waiting for 5s...
+
+I (5267) main: Sampling...
+
+I (5278) main: ADC Result: 0x8550 [34128]
+
+I (5281) main: Expected voltage -> Whole: 3, Fraction: 4800 / 16000 V
+
+I (5286) main: Voltage -> Whole: 2, Fraction: 2128 / 16000 V
+
+I (5292) main: Please change voltage to 2.85V. Waiting for 5s...
+
+I (10298) main: Sampling...
+
+I (10309) main: ADC Result: 0x3646 [13894]
+
+I (10312) main: Expected voltage -> Whole: 2, Fraction: 13600 / 16000 V
+
+I (10317) main: Voltage -> Whole: 0, Fraction: 13894 / 16000 V
+
+I (10324) main: Please change voltage to 1.41V. Waiting for 5s...
+
+I (15328) main: Sampling...
+
+I (15339) main: ADC Result: 0xf1a [3866]
+
+I (15342) main: Expected voltage -> Whole: 1, Fraction: 6560 / 16000 V
+
+I (15347) main: Voltage -> Whole: 0, Fraction: 3866 / 16000 V
+
+I (15353) main: Please change voltage to 3.3V. Waiting for 5s...
+
+I (20359) main: Sampling...
+
+I (20370) main: ADC Result: 0x8450 [33872]
+
+I (20373) main: Expected voltage -> Whole: 3, Fraction: 4800 / 16000 V
+
+I (20378) main: Voltage -> Whole: 2, Fraction: 1872 / 16000 V
+
+I (20385) main: Please change voltage to 2.85V. Waiting for 5s...
+
+I (25389) main: Sampling...
+
+I (25400) main: ADC Result: 0x1046 [4166]
+
+I (25403) main: Expected voltage -> Whole: 2, Fraction: 13600 / 16000 V
+
+I (25408) main: Voltage -> Whole: 0, Fraction: 4166 / 16000 V
+
+I (25415) main: Please change voltage to 1.41V. Waiting for 5s...
+
+I (30420) main: Sampling...
+
+I (30431) main: ADC Result: 0xd919 [55577]
+
+I (30434) main: Expected voltage -> Whole: 1, Fraction: 6560 / 16000 V
+
+I (30439) main: Voltage -> Whole: 3, Fraction: 7577 / 16000 V
+
+I (30446) main: Please change voltage to 3.3V. Waiting for 5s...
+
+I (35450) main: Sampling...
+
+I (35461) main: ADC Result: 0x8850 [34896]
+
+I (35464) main: Expected voltage -> Whole: 3, Fraction: 4800 / 16000 V
+
+I (35469) main: Voltage -> Whole: 2, Fraction: 2896 / 16000 V
+
+I (35476) main: Please change voltage to 2.85V. Waiting for 5s...
+
+I (40481) main: Sampling...
+
+I (40492) main: ADC Result: 0x3546 [13638]
+
+I (40495) main: Expected voltage -> Whole: 2, Fraction: 13600 / 16000 V
+
+I (40500) main: Voltage -> Whole: 0, Fraction: 13638 / 16000 V
+
+I (40507) main: Please change voltage to 1.41V. Waiting for 5s...
+
