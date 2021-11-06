@@ -1,6 +1,6 @@
 src/syscall.o: \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/newlib/src/syscall.c \
- /home/osahon/esp/ecng3006_lab3/i2c/build/include/sdkconfig.h \
+ /home/osahon/esp/ecng3006_lab3/verification_testing/build/include/sdkconfig.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/freertos/include/freertos/FreeRTOS.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/freertos/port/esp8266/include/freertos/FreeRTOSConfig.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h \
@@ -42,7 +42,7 @@ src/syscall.o: \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/newlib/platform_include/sys/termios.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/newlib/platform_include/sys/poll.h
 
-/home/osahon/esp/ecng3006_lab3/i2c/build/include/sdkconfig.h:
+/home/osahon/esp/ecng3006_lab3/verification_testing/build/include/sdkconfig.h:
 
 /opt/esp_sdk/ESP8266_RTOS_SDK/components/freertos/include/freertos/FreeRTOS.h:
 

@@ -1,12 +1,21 @@
-# I2C Example
+# Verification Testing
 
- This example shows how to use I2C for inter-device communication.
+ This code will create a task to run a verification test on the system.
+ The system samples a voltage using an ADC every five seconds,then from the ADC output, calculates and prints the voltage to the terminal
+ Unit Under Test: adcResToVoltage() which determines whole and fractional part of voltage value corresponding to an ADC result
 
 # Important Files
 
  Source file: main/user_main.c,
- Output file: main/lab1_q3_816005001.out,
+ Output file: main/lab3_q3_816005001.out,
  Binary file: build/i2c.bin
+
+# Test file
+
+ There is no explicit test file. The verification_test_task in main/user_main.c does the job of a test driver in this code.
+ There is only one test case: where the voltage at the ADC input is 2.85V.
+ There is only one test case because when the serial monitor output is being saved to a file, one cannot see the
+ messages being output by the program and hence one cannot know what test case the program expects next.
 
 # Pin Assignment
 
@@ -19,18 +28,22 @@
  Connection: connect sda/scl of sensor with GPIO2/GPIO0
 
 # Example Output  
-
+  
 ```
 
-I (0) gpio: GPIO[2]| InputEn: 0| OutputEn: 1| OpenDrain: 1| Pullup: 0| Pulldown: 0| Intr:0
-I (0) gpio: GPIO[0]| InputEn: 0| OutputEn: 1| OpenDrain: 1| Pullup: 0| Pulldown: 0| Intr:0
-Inside app_main
-Inside task_example
+I () main: Verification testing task
 
-I (0) main: ADC Result: xxxx
+I () main: UUT: whole system: system samples a voltage using an ADC every five seconds,
+                calculates and then prints the voltage to the terminal
 
-I (0) main: ADC Result: xxxx
+I () main: Please set voltage to 2.85V. I will wait for 5s...
 
-I (0) main: ADC Result: xxxx
+I () main: Now sampling...
+
+I () main: ADC Result: 0x9250 [37456]
+
+I () main: Expected voltage -> Whole: 2, Fraction: 13600 / 16000 V
+
+I () main: Voltage -> Whole: 2, Fraction: 5456 / 16000 V
 
 ```

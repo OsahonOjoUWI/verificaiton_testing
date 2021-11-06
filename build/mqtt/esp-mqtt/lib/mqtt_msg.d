@@ -2,7 +2,7 @@ esp-mqtt/lib/mqtt_msg.o: \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/mqtt/esp-mqtt/lib/mqtt_msg.c \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/mqtt/esp-mqtt/lib/include/mqtt_msg.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/mqtt/esp-mqtt/include/mqtt_config.h \
- /home/osahon/esp/ecng3006_lab3/i2c/build/include/sdkconfig.h \
+ /home/osahon/esp/ecng3006_lab3/verification_testing/build/include/sdkconfig.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/mqtt/esp-mqtt/include/mqtt_client.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp_common/include/esp_err.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/mqtt/esp-mqtt/include/mqtt_config.h \
@@ -96,7 +96,7 @@ esp-mqtt/lib/mqtt_msg.o: \
 
 /opt/esp_sdk/ESP8266_RTOS_SDK/components/mqtt/esp-mqtt/include/mqtt_config.h:
 
-/home/osahon/esp/ecng3006_lab3/i2c/build/include/sdkconfig.h:
+/home/osahon/esp/ecng3006_lab3/verification_testing/build/include/sdkconfig.h:
 
 /opt/esp_sdk/ESP8266_RTOS_SDK/components/mqtt/esp-mqtt/include/mqtt_client.h:
 

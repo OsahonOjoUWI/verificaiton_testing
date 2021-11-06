@@ -1,6 +1,6 @@
 src/bootloader_utility.o: \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/bootloader_support/src/bootloader_utility.c \
- /home/osahon/esp/ecng3006_lab3/i2c/build/include/sdkconfig.h \
+ /home/osahon/esp/ecng3006_lab3/verification_testing/build/include/sdkconfig.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/bootloader_support/include_priv/bootloader_config.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/bootloader_support/include/esp_flash_data_types.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/bootloader_support/include_priv/bootloader_utility.h \
@@ -25,7 +25,7 @@ src/bootloader_utility.o: \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/esp_system.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/esp_idf_version.h
 
-/home/osahon/esp/ecng3006_lab3/i2c/build/include/sdkconfig.h:
+/home/osahon/esp/ecng3006_lab3/verification_testing/build/include/sdkconfig.h:
 
 /opt/esp_sdk/ESP8266_RTOS_SDK/components/bootloader_support/include_priv/bootloader_config.h:
 

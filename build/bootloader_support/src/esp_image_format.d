@@ -1,6 +1,6 @@
 src/esp_image_format.o: \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/bootloader_support/src/esp_image_format.c \
- /home/osahon/esp/ecng3006_lab3/i2c/build/include/sdkconfig.h \
+ /home/osahon/esp/ecng3006_lab3/verification_testing/build/include/sdkconfig.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/bootloader_support/include/esp_image_format.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp_common/include/esp_err.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/bootloader_support/include/esp_flash_partitions.h \
@@ -17,7 +17,7 @@ src/esp_image_format.o: \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/bootloader_support/include_priv/bootloader_random.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/bootloader_support/include_priv/bootloader_sha.h
 
-/home/osahon/esp/ecng3006_lab3/i2c/build/include/sdkconfig.h:
+/home/osahon/esp/ecng3006_lab3/verification_testing/build/include/sdkconfig.h:
 
 /opt/esp_sdk/ESP8266_RTOS_SDK/components/bootloader_support/include/esp_image_format.h:
 

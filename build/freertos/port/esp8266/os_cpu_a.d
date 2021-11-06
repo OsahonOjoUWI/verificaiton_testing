@@ -16,7 +16,7 @@ port/esp8266/os_cpu_a.o: \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/xtensa/xtruntime-frames.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/freertos/port/esp8266/include/freertos/xtensa_timer.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/freertos/port/esp8266/include/freertos/FreeRTOSConfig.h \
- /home/osahon/esp/ecng3006_lab3/i2c/build/include/sdkconfig.h \
+ /home/osahon/esp/ecng3006_lab3/verification_testing/build/include/sdkconfig.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/freertos/port/esp8266/include/freertos/xtensa_rtos.h
 
 /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/xtensa/coreasm.h:
@@ -51,7 +51,7 @@ port/esp8266/os_cpu_a.o: \
 
 /opt/esp_sdk/ESP8266_RTOS_SDK/components/freertos/port/esp8266/include/freertos/FreeRTOSConfig.h:
 
-/home/osahon/esp/ecng3006_lab3/i2c/build/include/sdkconfig.h:
+/home/osahon/esp/ecng3006_lab3/verification_testing/build/include/sdkconfig.h:
 
 /opt/esp_sdk/ESP8266_RTOS_SDK/components/freertos/port/esp8266/include/freertos/xtensa_rtos.h:
 /opt/esp_sdk/ESP8266_RTOS_SDK/components/freertos/port/esp8266/os_cpu_a.S:

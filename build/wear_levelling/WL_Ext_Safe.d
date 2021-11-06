@@ -9,7 +9,7 @@ WL_Ext_Safe.o: \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/wear_levelling/private_include/WL_Ext_Cfg.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/wear_levelling/private_include/WL_Ext_Perf.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/log/include/esp_log.h \
- /home/osahon/esp/ecng3006_lab3/i2c/build/include/sdkconfig.h \
+ /home/osahon/esp/ecng3006_lab3/verification_testing/build/include/sdkconfig.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/esp8266/eagle_soc.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/driver/soc.h \
@@ -33,7 +33,7 @@ WL_Ext_Safe.o: \
 
 /opt/esp_sdk/ESP8266_RTOS_SDK/components/log/include/esp_log.h:
 
-/home/osahon/esp/ecng3006_lab3/i2c/build/include/sdkconfig.h:
+/home/osahon/esp/ecng3006_lab3/verification_testing/build/include/sdkconfig.h:
 
 /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h:
 

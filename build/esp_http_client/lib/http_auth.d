@@ -1,7 +1,7 @@
 lib/http_auth.o: \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp_http_client/lib/http_auth.c \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/tcpip_adapter/include/esp_netif.h \
- /home/osahon/esp/ecng3006_lab3/i2c/build/include/sdkconfig.h \
+ /home/osahon/esp/ecng3006_lab3/verification_testing/build/include/sdkconfig.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/esp_wifi_types.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp_common/include/esp_err.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/esp_interface.h \
@@ -90,7 +90,7 @@ lib/http_auth.o: \
 
 /opt/esp_sdk/ESP8266_RTOS_SDK/components/tcpip_adapter/include/esp_netif.h:
 
-/home/osahon/esp/ecng3006_lab3/i2c/build/include/sdkconfig.h:
+/home/osahon/esp/ecng3006_lab3/verification_testing/build/include/sdkconfig.h:
 
 /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/esp_wifi_types.h:
 

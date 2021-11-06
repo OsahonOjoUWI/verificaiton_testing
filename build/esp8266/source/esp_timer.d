@@ -3,7 +3,7 @@ source/esp_timer.o: \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/esp_timer.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp_common/include/esp_err.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/heap/include/esp_heap_caps.h \
- /home/osahon/esp/ecng3006_lab3/i2c/build/include/sdkconfig.h \
+ /home/osahon/esp/ecng3006_lab3/verification_testing/build/include/sdkconfig.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/heap/port/esp8266/include/esp_heap_config.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/log/include/esp_log.h \
  /opt/esp_sdk/ESP8266_RTOS_SDK/components/esp8266/include/rom/ets_sys.h \
@@ -43,7 +43,7 @@ source/esp_timer.o: \
 
 /opt/esp_sdk/ESP8266_RTOS_SDK/components/heap/include/esp_heap_caps.h:
 
-/home/osahon/esp/ecng3006_lab3/i2c/build/include/sdkconfig.h:
+/home/osahon/esp/ecng3006_lab3/verification_testing/build/include/sdkconfig.h:
 
 /opt/esp_sdk/ESP8266_RTOS_SDK/components/heap/port/esp8266/include/esp_heap_config.h:
 

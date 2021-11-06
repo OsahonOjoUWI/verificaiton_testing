@@ -240,34 +240,23 @@ static void verification_test_task(void *arg)
     int i = 2;
 
     printf("Inside task_example\n");
+
+    ESP_LOGI(TAG, "Verification testing task\n");
+    ESP_LOGI(TAG, "UUT: whole system: system samples a voltage using an ADC every five seconds,\n     calculates and then prints the voltage to the terminal\n\n");
+
     i2c_example_master_ADS1115_init(I2C_EXAMPLE_MASTER_NUM);
 
     while (1)
     {
-        // test cases
-        if (i == 1)               // 3.3V
-        {
-            ESP_LOGI(TAG, "Please change voltage to 3.3V. Waiting for 5s...\n");
-            exp_whole = 3;
-            exp_frac = 4800;
-        }
-        else if (i == 2)          // 2.85V
-        {
-            ESP_LOGI(TAG, "Please change voltage to 2.85V. Waiting for 5s...\n");
-            exp_whole = 2;
-            exp_frac = 13600;
-        }
-        else if (i == 3)          // 1.41V
-        {
-            ESP_LOGI(TAG, "Please change voltage to 1.41V. Waiting for 5s...\n");
-            exp_whole = 1;
-            exp_frac = 6560;
-        }
+        // test case: 2.85V
+        ESP_LOGI(TAG, "Please set voltage to 2.85V. I will wait for 5s...\n");
+        exp_whole = 2;
+        exp_frac = 13600;
 
         //wait for 5s user to change ADC input voltage
         vTaskDelay(5000 / portTICK_RATE_MS);
 
-        ESP_LOGI(TAG, "Sampling...\n");
+        ESP_LOGI(TAG, "Now sampling...\n");
 
         //initiate conversion
         cmd_data = 0xC283;
@@ -297,10 +286,6 @@ static void verification_test_task(void *arg)
             ESP_LOGI(TAG, "ERROR: ADS1115 read failed!\n");
         }
 
-        /* if (i >= 3)
-            i = 1;
-        else
-            i++; */
     }
 
     i2c_driver_delete(I2C_EXAMPLE_MASTER_NUM);
